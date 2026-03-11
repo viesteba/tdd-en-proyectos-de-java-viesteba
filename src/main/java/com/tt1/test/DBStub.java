@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class DBStub{
+public class DBStub implements IDBStub{
     private Map<Integer,ToDo> tareas; //autogenerar id autoincremental
     private Set<String> agenda;
     private int contadorId = 1;
