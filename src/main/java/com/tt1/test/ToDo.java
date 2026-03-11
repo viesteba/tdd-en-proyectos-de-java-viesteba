@@ -9,6 +9,7 @@ public class ToDo implements Serializable{
     private String descripcion;
     private long fechaLimite;
     private boolean completado;
+    private int id;
 
     // Constructor sin parámetros
     public ToDo(){
@@ -41,6 +42,12 @@ public class ToDo implements Serializable{
         throw new UnsupportedOperationException("Clase aún no implementada.");
     }
     public boolean isCompletado(){
+        throw new UnsupportedOperationException("Clase aún no implementada.");
+    }
+    public void setId(String nombre){
+        throw new UnsupportedOperationException("Clase aún no implementada.");
+    }
+    public String getId(){
         throw new UnsupportedOperationException("Clase aún no implementada.");
     }
 }
