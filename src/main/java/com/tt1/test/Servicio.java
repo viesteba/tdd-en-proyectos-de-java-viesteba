@@ -3,10 +3,10 @@ package com.tt1.test;
 import java.util.List;
 
 public class Servicio {
-	private Repositorio repositorio;
-	private MailerStub mailer;
+	private IRepositorio repositorio;
+	private IMailerStub mailer;
 	
-    public Servicio(Repositorio repositorio, MailerStub mailerStub){
+    public Servicio(IRepositorio repositorio, IMailerStub mailerStub){
     	
     }
     public boolean anadirTarea(String nombre, long fechaLimite){

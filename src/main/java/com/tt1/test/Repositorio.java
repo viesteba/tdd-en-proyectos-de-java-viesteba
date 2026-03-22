@@ -3,12 +3,11 @@ package com.tt1.test;
 import java.util.List;
 import java.util.Set;
 
-public class Repositorio{
+public class Repositorio implements IRepositorio{
     //Comunicamos con DBStub
-	private DBStub db;
+	private IDBStub db;
 	
-	public Repositorio(DBStub db) {
-		throw new UnsupportedOperationException("Clase aún no implementada.");
+	public Repositorio(IDBStub db) {
 	}
     public void tareaCompletada(ToDo tarea){
         throw new UnsupportedOperationException("Clase aún no implementada.");

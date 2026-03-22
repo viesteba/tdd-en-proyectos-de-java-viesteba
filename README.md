@@ -11,6 +11,12 @@ Mediante la funcionalidad de la clase Servicio puedes crear una tarea y marcarla
 Además, también tienes la opción de agregar direcciones de correo y consultar las tareas sin completar. 
 En suma, si tienes tareas sin completar cuya fecha límite hay pasado, cada operación enviará un correo de alerta a todas las direcciones de la agenda.
 
+## Tecnologías empleadas
+
+- JUnit 5.10.0
+- JDK 21
+- Maven
+
 ## Licencia
 
 Este proyecto está distribuido bajo la licencia [MIT](https://mit-license.org/).
