@@ -6,6 +6,7 @@ import java.util.Set;
 public class Repositorio{
     //Comunicamos con DBStub
 	private DBStub db;
+	
 	public Repositorio(DBStub db) {
 		throw new UnsupportedOperationException("Clase aún no implementada.");
 	}

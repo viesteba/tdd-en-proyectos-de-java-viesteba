@@ -1,32 +1,31 @@
 package com.tt1.test;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ToDoTest {
 	private ToDo tarea;
 	private long fechaReferencia;
 
-	@BeforeClass
+	@BeforeAll
 	public static void setUpBeforeClass() throws Exception {
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		tarea = new ToDo();
 		fechaReferencia = System.currentTimeMillis();
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 	}
 

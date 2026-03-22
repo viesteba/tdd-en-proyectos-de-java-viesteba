@@ -29,4 +29,7 @@ public class DBStub implements IDBStub{
     public Set<String> getAgenda(){
     	throw new UnsupportedOperationException("Clase aún no implementada.");
     }
+    public boolean agregarEmail(String email){
+        throw new UnsupportedOperationException("Clase aún no implementada.");
+    }
 }
