@@ -16,39 +16,42 @@ public class ToDo implements Serializable{
     	super();
     }
     public ToDo(String nombre, String descripcion, long fecha, boolean completado) {
-    	throw new UnsupportedOperationException("Clase aún no implementada.");
+    	this.nombre = nombre;
+    	this.descripcion = descripcion;
+    	this.fechaLimite = fecha;
+    	this.completado = completado;
     }
     
     // Métodos getters y setters
     public void setNombre(String nombre){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        this.nombre = nombre;
     }
     public String getNombre(){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return this.nombre;
     }
     public void setDescripcion (String descripcion){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        this.descripcion = descripcion;
     }
     public String getDescripcion(){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return this.descripcion;
     }
     public void setFechaLimite (long fecha){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        this.fechaLimite = fecha;
     }
     public long getFechaLimite(){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return this.fechaLimite;
     }
     public void setCompletado (boolean completado){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        this.completado = completado;
     }
     public boolean isCompletado(){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return this.completado;
     }
-    public void setId(String nombre){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+    public void setId(int identificador){
+        this.id = identificador;
     }
-    public String getId(){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+    public int getId(){
+        return this.id;
     }
     @Override
     public boolean equals(Object o) {

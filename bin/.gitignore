@@ -15,11 +15,3 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-/.editorconfig
-/.gitignore
-/.idea/
-/.settings/
-/LICENSE
-/README.md
-/pom.xml
-/src/

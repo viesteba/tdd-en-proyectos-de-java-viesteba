@@ -12,7 +12,7 @@ import com.tt1.test.mock.DBMock;
 
 class RepositorioTest {
 	ToDo tarea;
-	IDBStub db;
+	DBMock db;
 	IRepositorio repositorio;
 	String email;
 
@@ -37,8 +37,32 @@ class RepositorioTest {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testAlmacenarTarea() {
+		repositorio.almacenarTarea(tarea);
+		assertTrue(db.bTareaCreada(), "Ha almacenado una tarea");
+	}
+	@Test
+	void testAlmacenarEmail() {
+		repositorio.almacenarEmail(email);
+		assertTrue(db.bAgregarEmail(),"Ha almacenado un email");
+	}
+	@Test
+	void testEncontrarTarea() {
+		repositorio.almacenarTarea(tarea);
+		repositorio.encontrarTarea(tarea);
+		assertTrue(db.bTareaDevuelta(),"Ha buscado la tarea");
+	}
+	@Test
+	void testTareaCompletada() {
+		repositorio.almacenarTarea(tarea);
+		repositorio.tareaCompletada(tarea);
+		assertTrue(db.bActualizarTarea(),"Ha actualizado la tarea");
+	}
+	@Test
+	void testListarTodas() {
+		repositorio.almacenarTarea(tarea);
+		repositorio.listarTodas();
+		assertTrue(db.bListarTodas(),"Ha listado todas las tareas");
 	}
 
 }

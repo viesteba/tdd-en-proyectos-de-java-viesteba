@@ -15,6 +15,7 @@ public class ServicioIntegracionTest {
 	MailerStub mailer;
 	Servicio serv;
 	long tiempo;
+	String email;
 
 	@BeforeAll
 	public static void setUpBeforeClass() throws Exception {
@@ -33,6 +34,7 @@ public class ServicioIntegracionTest {
 		mailer = new MailerStub();
 		serv = new Servicio(repo,mailer);
 		mailer.reset();
+		email = "lordOfTheStrings@domain.com";
 	}
 
 	@AfterEach

@@ -44,7 +44,9 @@ public class DBMock implements IDBStub{
 	@Override
 	public Set<String> getAgenda() {
 		this.pedirAgenda = true;
-		return new HashSet<String>();
+		Set<String> agenda = new HashSet<>();
+		agenda.add("emailto@gmail.com");
+;		return agenda;
 	}
 
 	@Override

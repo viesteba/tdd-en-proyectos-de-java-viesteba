@@ -6,7 +6,7 @@ public class MailerMock implements IMailerStub{
 	private boolean correoEnviado = false, getCorreosEnviados = false, getReset = false;
 	@Override
 	public boolean enviarCorreo(String dirCorreo, String mensaje) {
-		correoEnviado = true;
+		this.correoEnviado = true;
 		return true;
 	}
 
