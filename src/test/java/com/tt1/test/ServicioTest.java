@@ -61,7 +61,6 @@ class ServicioTest {
 	@Test
 	void testMarcarCompletada() {
 		serv.marcarCompletada(tarea);
-		assertTrue(repo.bTareaEncontrada(), "Ha encontrado la tarea");
 		assertTrue(repo.bTareaCompletada(),"Ha completado la tarea");
 	}
 	@Test

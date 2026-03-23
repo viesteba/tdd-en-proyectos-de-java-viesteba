@@ -8,20 +8,25 @@ public class Repositorio implements IRepositorio{
 	private IDBStub db;
 	
 	public Repositorio(IDBStub db) {
+		this.db = db;
 	}
-    public void tareaCompletada(ToDo tarea){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+    public boolean tareaCompletada(ToDo tarea){
+    	tarea.setCompletado(true);
+        return tarea == this.db.actualizarTarea(tarea);
     }
     public ToDo encontrarTarea (ToDo tarea){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return this.db.devolverTarea(tarea.getId());
     }
-    public void almacenarTarea (ToDo tarea){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+    public boolean almacenarTarea (ToDo tarea){
+        return tarea == this.db.crearTarea(tarea);
     }
-    public void almacenarEmail (String correo){
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+    public boolean almacenarEmail (String correo){
+        return this.db.agregarEmail(correo);
     }
     public List<ToDo> listarTodas(){
-    	throw new UnsupportedOperationException("Clase aún no implementada.");
+    	return this.db.listarTodas();
+    }
+    public Set<String> obtenerAgenda() {
+        return this.db.getAgenda();
     }
 }

@@ -1,11 +1,13 @@
 package com.tt1.test;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IRepositorio {
-	public void tareaCompletada(ToDo tarea);
+	public boolean tareaCompletada(ToDo tarea);
 	public ToDo encontrarTarea (ToDo tarea);
-	public void almacenarTarea (ToDo tarea);
-	public void almacenarEmail (String correo);
+	public boolean almacenarTarea (ToDo tarea);
+	public boolean almacenarEmail (String correo);
 	public List<ToDo> listarTodas();
+	public Set<String> obtenerAgenda();
 }

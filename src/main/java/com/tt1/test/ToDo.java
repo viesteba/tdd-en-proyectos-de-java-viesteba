@@ -2,6 +2,7 @@ package com.tt1.test;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class ToDo implements Serializable{
 	// Propiedades privadas
@@ -14,6 +15,10 @@ public class ToDo implements Serializable{
     // Constructor sin parámetros
     public ToDo(){
     	super();
+    	this.nombre = null;
+    	this.descripcion = null;
+    	this.fechaLimite=0L;
+    	this.completado = false;
     }
     public ToDo(String nombre, String descripcion, long fecha, boolean completado) {
     	this.nombre = nombre;
@@ -55,6 +60,23 @@ public class ToDo implements Serializable{
     }
     @Override
     public boolean equals(Object o) {
-    	throw new UnsupportedOperationException("Clase aún no implementada.");
+    	if(this==o) {
+    		return true;
+    	}
+    	if(o==null || this.getClass()!= o.getClass()) {
+    		return false;
+    	}
+    	ToDo tarea1 = (ToDo) o;
+    	return this.id==tarea1.id && 
+    			this.completado == tarea1.completado && 
+    			this.fechaLimite == tarea1.fechaLimite && 
+    			this.nombre.equals(tarea1.nombre) &&
+    			this.descripcion.equals(tarea1.descripcion);
+    			
+    }
+    @Override
+    public int hashCode() {
+        // Genera un número único basado en el contenido de los campos
+        return Objects.hash(nombre, descripcion, fechaLimite, completado, id);
     }
 }

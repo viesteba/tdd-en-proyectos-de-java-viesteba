@@ -31,7 +31,7 @@ public class ToDoTest {
 
 	@Test
 	public void testToDoConstructorVacio() {
-		assertNull("El nombre debería ser null por defecto", tarea.getNombre());
+		assertNull( tarea.getNombre(),"El nombre debería ser null por defecto");
 		assertNull(tarea.getDescripcion());
 		assertEquals(0L, tarea.getFechaLimite());
 		assertFalse(tarea.isCompletado());
@@ -43,7 +43,7 @@ public class ToDoTest {
 		assertEquals("Limpiar la ducha",tareaLlena.getNombre());
 		assertEquals(fechaReferencia,tareaLlena.getFechaLimite());
 		assertEquals("En el baño del piso",tareaLlena.getDescripcion());
-		assertTrue(tarea.isCompletado());
+		assertTrue(tareaLlena.isCompletado());
 	}
 
 	@Test

@@ -1,7 +1,9 @@
 package com.tt1.test.mock;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.tt1.test.IDBStub;
 import com.tt1.test.IRepositorio;
@@ -11,15 +13,18 @@ public class RepositorioMock implements IRepositorio{
 	private boolean tareaCompletada = false, tareaEncontrada = false, tareaAlmacenada = false, 
 			emailAlmacenado = false, listarTodas = false;
 	// Lista interna para que el test pueda "inyectar" tareas de prueba
-    private List<ToDo> tareasSimuladas = new ArrayList<>();
+    private List<ToDo> tareasSimuladas;
+    private IDBStub db;
     
     public RepositorioMock(IDBStub db) {
-    	
+    	this.tareasSimuladas = new ArrayList<>();
+    	this.db = db;
     }
     
 	@Override
-	public void tareaCompletada(ToDo tarea) {
+	public boolean tareaCompletada(ToDo tarea) {
 		this.tareaCompletada = true;
+		return true;
 	}
 
 	@Override
@@ -29,24 +34,29 @@ public class RepositorioMock implements IRepositorio{
 	}
 
 	@Override
-	public void almacenarTarea(ToDo tarea) {
+	public boolean almacenarTarea(ToDo tarea) {
 		this.tareaAlmacenada = true;
+		return true;
 		
 	}
 
 	@Override
-	public void almacenarEmail(String correo) {
+	public boolean almacenarEmail(String correo) {
 		this.emailAlmacenado = true;
+		return true;
 	}
 	// Método extra para el Test: permite configurar qué devolverá el mock
     public void simularTareas(List<ToDo> tareas) {
         this.tareasSimuladas = tareas;
     }
+    public Set<String> obtenerAgenda(){
+    	return this.db.getAgenda();
+    }
 
 	@Override
 	public List<ToDo> listarTodas() {
 		this.listarTodas = true;
-		return new ArrayList<>();
+		return this.tareasSimuladas;
 	}
 	public boolean bTareaCompletada() {
 		return this.tareaCompletada;

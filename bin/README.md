@@ -1,21 +1,31 @@
-# Servicio de tareas pendientes (TDD)
+# 📝 Servicio de tareas pendientes (TDD)
 
-Este es un documento con una estructura básica de Java: Maven y JUnit.
-La meta de este repositorio es desarrollar conocimientos TDD en Java
-de mano de la asignatura Taller Transversal I del Grado en Ingeniería Informática
-de la Universidad de La Rioja.
+[![Java](https://img.shields.io/badge/Java-21-blue.svg)](https://adoptium.net/)
+[![Maven](https://img.shields.io/badge/Maven-3.9-blue.svg)](https://maven.apache.org/)
+[![JUnit](https://img.shields.io/badge/JUnit-5.10.0-green.svg)](https://junit.org/junit5/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Uso
+Este repositorio contiene con una implementación básica de un servicio de tareas pendientes, desarrollada siguiendo la metodología **Test-Driven Development**. 
+El proyecto se crea como parte de la asignatura *Taller Transversal I* del Grado en Ingeniería Informática de la Universidad de La Rioja.
 
-Mediante la funcionalidad de la clase Servicio puedes crear una tarea y marcarla como finalizada cuando la completes. 
-Además, también tienes la opción de agregar direcciones de correo y consultar las tareas sin completar. 
-En suma, si tienes tareas sin completar cuya fecha límite hay pasado, cada operación enviará un correo de alerta a todas las direcciones de la agenda.
+## Objetivo
 
-## Tecnologías empleadas
+Aplicar los principios TDD para construir un servicio que permita: 
 
-- JUnit 5.10.0
-- JDK 21
-- Maven
+- Crear tareas con fecha límite. 
+- Marcar tareas como completadas. 
+- Gestionar una agenda de direcciones de correo electrónico. 
+- Consultar las tareas pendientes. 
+- Enviar alertas por correo cuando una tarea pendiente haya superado su fecha límite. 
+
+## Requisitos
+
+- **JDK 21** o superior
+- **Maven 21+**
+
+## Instalación y ejecución
+
+Clona el respositorio y compila el proyecto con Maven.
 
 ## Licencia
 
