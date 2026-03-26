@@ -6,14 +6,54 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.tt1.test.Servicio;
+/**
+ * Punto de entrada de la aplicación de gestión de tareas.
+ * <p>
+ * Inicializa la arquitectura de la aplicación con sus dependencias reales
+ * ({@link DBStub}, {@link Repositorio}, {@link MailerStub}) y ofrece un menú
+ * interactivo por consola con las siguientes opciones:
+ * </p>
+ * <ul>
+ *   <li>Añadir una nueva tarea con nombre y fecha límite.</li>
+ *   <li>Agregar una dirección de correo a la agenda.</li>
+ *   <li>Marcar una tarea pendiente como completada.</li>
+ *   <li>Consultar todas las tareas pendientes.</li>
+ *   <li>Salir de la aplicación.</li>
+ * </ul>
+ * @author Víctor Esteban Chacobo
+ * @version 1.0
+ * @since 1.0
+ * @see Servicio
+ * @see DBStub
+ * @see Repositorio
+ * @see MailerStub
+ */
 public class App{
+    /**
+     * Inicializa la aplicación y muestra un menú interactivo por consola.
+     * <p>
+     * El flujo principal es:
+     * </p>
+     * <ol>
+     *   <li>Instancia las dependencias reales de la arquitectura.</li>
+     *   <li>Muestra el menú y lee la opción del usuario.</li>
+     *   <li>Ejecuta la operación correspondiente usando {@link Servicio}.</li>
+     *   <li>Repite hasta que el usuario elija salir.</li>
+     * </ol>
+     * <p>
+     * Las fechas límite se introducen en formato {@code dd/MM/yyyy}.
+     * Si se pulsa ENTER sin introducir fecha, la tarea caducará en 5 segundos
+     * (útil para probar el sistema de alertas).
+     * </p>
+     * @param args Argumentos de línea de comandos; no se utilizan.
+     */
 	public static void main(String[] args) {
 		// 1. Inicialización de la arquitectura (Instanciamos las clases reales)
         DBStub db = new DBStub();
         Repositorio repo = new Repositorio(db);
         MailerStub mailer = new MailerStub();
         Servicio servicio = new Servicio(repo, mailer);
-		
+
 		// 2. Preparar el lector de teclado
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
@@ -38,11 +78,11 @@ public class App{
                 case "1":
                     System.out.print("Introduce el nombre de la tarea: ");
                     String nombre = scanner.nextLine();
-                    
+
                     System.out.print("Introduce la fecha límite (formato dd/MM/yyyy) o pulsa ENTER para hacer que caduque en 5 segundos: ");
                     String fechaStr = scanner.nextLine();
                     long fechaLimite = 0;
-                    
+
                     try {
                         if (fechaStr.trim().isEmpty()) {
                             // TRUCO: Si el usuario solo pulsa enter, la tarea caducará muy rápido para probar las alertas
@@ -53,7 +93,7 @@ public class App{
                             Date date = sdf.parse(fechaStr);
                             fechaLimite = date.getTime();
                         }
-                        
+
                         servicio.anadirTarea(nombre, fechaLimite);
                         System.out.println("=> ¡Tarea añadida con éxito!");
                     } catch (Exception e) {
@@ -79,11 +119,11 @@ public class App{
                             System.out.println("ID: " + t.getId() + " - " + t.getNombre());
                         }
                         System.out.print("Introduce el ID de la tarea a completar: ");
-                        
+
                         try {
                             int id = Integer.parseInt(scanner.nextLine());
                             ToDo tareaSeleccionada = null;
-                            
+
                             // Buscamos la tarea correspondiente a ese ID
                             for (ToDo t : pendientesParaCompletar) {
                                 if (t.getId() == id) {
@@ -91,7 +131,7 @@ public class App{
                                     break;
                                 }
                             }
-                            
+
                             if (tareaSeleccionada != null) {
                                 servicio.marcarCompletada(tareaSeleccionada);
                                 System.out.println("=> ¡Tarea marcada como completada!");
@@ -127,9 +167,9 @@ public class App{
                     System.out.println("=> ERROR: Opción no válida. Inténtalo de nuevo.");
             }
         }
-        
+
         scanner.close();
-		
-		
+
+
 	}
 }

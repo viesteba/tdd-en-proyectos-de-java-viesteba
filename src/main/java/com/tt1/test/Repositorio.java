@@ -44,7 +44,7 @@ public class Repositorio implements IRepositorio{
     /**
      * Busca una tarea en la base de datos según su identificador.
      * @param tarea La tarea cuyo identificador se emplea para la búsqueda.
-     * @return La tarea encontrada, o {@code null} si no existe ninguno con ese identificador.
+     * @return La tarea encontrada, o {@code null} si no existe ninguna con ese identificador.
      */
     public ToDo encontrarTarea (ToDo tarea){
         return this.db.devolverTarea(tarea.getId());
