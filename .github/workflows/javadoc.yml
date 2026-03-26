@@ -42,6 +42,7 @@ jobs:
                   -sourcepath src/main/java \
                   -subpackages com.tt1.test \
                   -classpath $(cat cp.txt) \
+                  -tag "implNote:a:Nota de implementación:" \
                   -author -version -charset UTF-8 \
                   -windowtitle "Task Service API Reference"
 
