@@ -3,15 +3,17 @@ name: CI - Test and promote to early
 on:
     push:
         branches:
-            -main
+            - main
 permissions:
     contents: write
 jobs:
     tests:
-        run-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
             
             - name: Set up Java
               uses: actions/setup-java@v4
@@ -24,10 +26,10 @@ jobs:
               
             - name: Merge main into early
               if: success()
-                run: |
-                    git config user.name "github-actions"
-                    git config user.email "github-actions@github.com"
-                    git fetch origin
-                    git checkout early
-                    git merge main
-                    git push origin early
+              run: |
+                 git config user.name "github-actions"
+                 git config user.email "github-actions@github.com"
+                 git fetch origin
+                 git checkout early
+                 git merge main
+                 git push origin early
